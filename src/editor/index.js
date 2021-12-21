@@ -5,6 +5,7 @@ import { AltMentionsElement } from './render';
 import AltMentionsEditor from './AltMentionsEditor';
 import { AltMentionsEditorSchema } from './schema';
 import mentionsSVG from '@plone/volto/icons/add-user.svg';
+import { withAltMentions } from './extensions';
 
 const messages = defineMessages({
   edit: {
@@ -25,6 +26,7 @@ export default function install(config) {
     pluginEditor: AltMentionsEditor,
     element: AltMentionsElement,
     isInlineElement: true,
+    extensions: [withAltMentions],
     hasValue: (formData) => !!formData.altMentions,
     toolbarButtonIcon: mentionsSVG,
     editSchema: AltMentionsEditorSchema,
